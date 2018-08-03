@@ -24,11 +24,19 @@ function validateZip() {
   }
 }
 
-function validatePhone() {}
+function validatePhone() {
+  const phone = document.getElementById('phone');
+  const re = /^[987]\d{9}$/;
+  if (!re.test(phone.value)) {
+    phone.classList.add('is-invalid');
+  } else {
+    phone.classList.remove('is-invalid');
+  }
+}
 
 function validateEmail() {
   const email = document.getElementById('email');
-  const re = /^()$/;
+  const re = /^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9_\.\-]+)\.([a-zA-Z]{2,5})$/;
   if (!re.test(email.value)) {
     email.classList.add('is-invalid');
   } else {
